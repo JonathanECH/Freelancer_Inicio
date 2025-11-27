@@ -1,0 +1,355 @@
+/* Importación de fuentes desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Petrona:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Variables CSS para colores usados en el diseño */
+:root {
+    --blanco: #ffffff;
+    --negro: #000000;
+    --primario: #ffc107;
+    --secundario: #0097a7;
+    --grisClaro: #DFE9F3;
+    --gris: #F3E9DF;
+}
+
+/* Globales */
+html {
+    font-size: 62.5%;
+    /* Para facilitar conversión rem a px */
+    box-sizing: border-box;
+    /* Incluye padding y border dentro de ancho y alto */
+    scroll-snap-type: y mandatory;
+}
+
+.servicio,
+.navegacion-principal,
+.formulario{
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+
+*,
+*:before,
+*:after {
+    /* Hereda box-sizing para todos los elementos y pseudo-elementos */
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 16px;
+    font-family: 'Archivo', sans-serif;
+    /* font-weight: normal; */
+    font-style: normal;
+    background: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100%);
+    /* Esto es para agregarle un efecto de degradado al fondo de la pagina */
+}
+
+/* -----------------------------------Títulos--------------------------------------------------------- */
+
+.titulo {
+    text-align: center;
+    font-size: 4rem;
+    color: var(--primario);
+}
+
+/* Estilo para el span hijo dentro del título */
+.titulo>span {
+    font-size: 2rem;
+    color: var(--secundario);
+}
+
+
+/* ------------------------------------Navegación (nav)-------------------------------------------------- */
+
+/* Estilos para la navegación principal */
+.navegacion-principal {
+    display: flex;
+    flex-direction: column;
+    /* Alineación y justificación comentadas para referencia */
+    /* align-items: center; */
+    /* justify-content: space-around; Para alinear horizontalmente */
+    color: var(--blanco);
+}
+
+/* Estilos para los enlaces dentro de la navegación */
+.navegacion-principal>a {
+    display: block;
+    text-align: center;
+    padding: 1.4rem;
+    font-size: 2rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--blanco);
+}
+
+/* Efecto hover para enlaces de navegación */
+.navegacion-principal>a:hover {
+    text-decoration: underline;
+    border-radius: 1rem;
+    background: var(--primario);
+    color: var(--negro);
+}
+
+/* Clase contenedor para limitar ancho y centrar */
+.contenedor {
+    max-width: 80rem;
+    /* Limita ancho máximo a 80rem (aprox 1280px) */
+    margin: 0 auto;
+    /* Centra horizontalmente */
+}
+
+/* Utilidades */
+.width-100 {
+    width: 100%;
+}
+
+.flex {
+    display: flex;
+}
+
+.alinear-derecha {
+    justify-content: flex-end;
+}
+
+/* Fondo del menú de navegación */
+.nav-bg {
+    background-color: var(--secundario);
+}
+
+/* ---------------------------------------Imagen de presentación----------------------------------------------------- */
+
+/* Estilos para la sección hero con imagen de fondo */
+.hero {
+    background-image: url(../img/Freelancer.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 34rem;
+    position: relative;
+}
+
+/* Contenido interno dentro del hero, centrado vertical y horizontal */
+.hero>.contenido-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Centrado vertical */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgb(0 0 0 / 50%);
+    /* Fondo negro con transparencia */
+    color: var(--blanco);
+}
+
+/* Estilos para el span dentro del título hero */
+.hero>.contenido-hero>h2>span {
+    font-size: 1.6rem;
+    text-shadow: 0px 0px 5px black;
+    color: var(--secundario);
+}
+
+/* Botón de contacto con estilos */
+.btn-contactar,
+.btn-contacto {
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 700;
+    width: 70%;
+    border: none;
+    color: var(--negro);
+    background: var(--secundario);
+}
+
+/* Cambios en estilos caundo le hacen hover al botón */
+.btn-contactar:hover,
+.btn-contacto:hover {
+    color: var(--blanco);
+}
+
+/* Ajustes para el ícono SVG dentro del hero para hacerlo más grade*/
+.hero>.contenido-hero>h2+div>svg {
+    height: 5rem;
+    width: 5rem;
+}
+
+.ubicacion {
+    display: flex;
+    align-items: flex-end;
+    margin: 0;
+}
+
+.ubicacion p {
+    font-weight: 500;
+    margin: 0;
+}
+
+/* -----------------------------------Main--------------------------------------------------------- */
+.contenedor-main {
+    margin-top: 2rem;
+    background-color: var(--blanco);
+    box-shadow: 0px 2px 7px 2px rgba(0, 0, 0, 0.37);
+    border-radius: 1rem;
+    /* border: 1px solid black; */
+    padding: 2rem;
+}
+
+.contenedor-main>h2 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+.cotenedor-servicios {
+    /*grid-template-columns:300px 300px; Esto es lo mismo que 
+    grid-template-rows: 200px 200px;*/
+    /*grid: 200px 200px / 300px 300px Esto */
+
+    /* grid-template-columns:  33.3% 33.3% 33.3%; Esto se pude escribir de estas 2 formas 
+    grid-template-columns:  1fr 1fr 1fr;*/
+
+    /* grid-template-columns: repeat(3, 1fr); Y es lo mismo que esto */
+}
+
+.servicio {
+    justify-items: center;
+    text-align: center;
+    /* Fondo similar al bloque azul claro de la imagen */
+    padding: 2rem;
+    border-radius: 0.5rem;
+}
+
+.servicio p {
+    line-height: 2.2rem;
+}
+
+.servicio .icono-servicio {
+    height: 12rem;
+    width: 12rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.servicio .icono-servicio>svg {
+    height: 4rem;
+    width: 4rem;
+}
+
+/*----------------------Formulario de Contacto------------------------------------ */
+.formulario {
+    background-color: #3b4250;
+    width: min(60rem, 100%);
+    /* Cual tamaño es menor 600px o el 100%? Si son 600<100% lo toma*/
+    margin: 0 auto;
+    padding: 2rem;
+    border: 1px solid black;
+    border-radius: 2rem;
+    justify-content: end;
+}
+
+.formulario fieldset {
+    border: none;
+}
+
+.formulario legend {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--primario)
+}
+
+.formulario input,
+textarea {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    border: none;
+}
+
+.formulario .btn-contacto {
+    width: auto;
+}
+
+.contenedor-campos textarea {
+    resize: none;
+    height: 10rem;
+}
+
+.campo label {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--blanco);
+    margin-bottom: 0.5rem;
+}
+
+/* -----------------------------------Footer--------------------------------------------------------- */
+
+.footer {
+    margin-top: 2rem;
+    background-color: var(--primario);
+    padding: 1rem;
+}
+
+.footer p {
+    display: flex;
+    font-size: 2rem;
+    font-weight: 700;
+    justify-content: center;
+}
+
+
+/* -----------------------------------Media Query--------------------------------------------------------- */
+/* Estitos para pantallas mas pequeñas */
+
+/* Media query para pantallas medianas y grandes */
+@media(min-width:768px) {
+
+    /* Cambia la navegación principal de columna a fila */
+    .navegacion-principal {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    /* Para cambiar el tamaño del boton cuando esta en pantallas mas grandes (pc) */
+    .btn-contactar {
+        width: auto;
+    }
+
+    .servicio {
+        background-color: var(--grisClaro);
+    }
+
+    .cotenedor-servicios {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        /* esto quire decir que se va a repetir 3 veces 1 fracción */
+        column-gap: 1rem;
+        /* para una separación entre cada columna */
+    }
+
+    .contenedor-campos {
+        /* flex-direction: column;
+    align-items: center; */
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto 13rem;
+        column-gap: 1rem;
+    }
+
+    .formulario .btn-contacto {
+        width: 12rem;
+    }
+
+    .campo:nth-child(3),
+    .campo:nth-child(4) {
+        /*nth-child es un selector de css que selecciona el hijo número n */
+        grid-column: 1 / 3;
+    }
+}
